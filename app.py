@@ -1,7 +1,14 @@
 import os
 import bottle
 
+def allow_cors(func):
+	def wrapper(*args, **kwargs):
+		bottle.response.headers['Access-Control-Allow-Origin'] = 'example.com' # * in case you want to be accessed via any website
+		return func(*args, **kwargs)
+	return wrapper
+
 @bottle.get('/api')
+@allow_cors
 def index_page():
 	amount=bottle.request.query.a
 	from_am=bottle.request.query.f
@@ -9,9 +16,6 @@ def index_page():
 	print amount
 	print from_am
 	print to_am
-	bottle.response.headers['Access-Control-Allow-Origin'] = '*'
-	bottle.response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
-	bottle.response.headers['Access-Control-Allow-Headers'] = '*'
 	return bottle.template('./views/api.tpl',a=amount,f=from_am,t=to_am)
 
 @bottle.error(404)
