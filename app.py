@@ -1,3 +1,4 @@
+import os
 import bottle
 
 @bottle.get('/api')
@@ -14,6 +15,11 @@ def index_page():
 def error404(error):
 	return bottle.template('./views/error.tpl')
 
-bottle.debug(True)
-bottle.run(host='localhost', port=8082)
+if os.environ.get('APP_LOCATION') == 'heroku':
+	bottle.run(host="0.0.0.0", port=int(os.environ.get("PORT",5000)))
+else:
+	bottle.run(host='localhost', port=8082, debug=True)
+
+#bottle.debug(True)
+#bottle.run(host='localhost', port=8082)
 #localhost:8082/api?a=300&f=INR&t=USD
