@@ -9,6 +9,7 @@
 	<script>
 	var html_resp,custom_resp,from_curr='{{f}}',to_curr='{{t}}';
 	var xhttp = new XMLHttpRequest();
+	xhttp.withCredentials = true;
 	xhttp.onreadystatechange=function(){
 	if(xhttp.readyState==4 && xhttp.status==200){
 		html_resp =  $(xhttp.responseText).find('#currency_converter_result')["0"].innerText.split(' '); 
