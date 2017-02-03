@@ -3,7 +3,7 @@ import bottle
 
 def allow_cors(func):
 	def wrapper(*args, **kwargs):
-		bottle.response.headers['Access-Control-Allow-Origin'] = 'example.com' # * in case you want to be accessed via any website
+		bottle.response.headers['Access-Control-Allow-Origin'] = '*' # * in case you want to be accessed via any website
 		return func(*args, **kwargs)
 	return wrapper
 
