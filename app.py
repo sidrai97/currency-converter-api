@@ -10,6 +10,8 @@ def index_page():
 	print from_am
 	print to_am
 	bottle.response.headers['Access-Control-Allow-Origin'] = '*'
+	bottle.response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
+	bottle.response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 	return bottle.template('./views/api.tpl',a=amount,f=from_am,t=to_am)
 
 @bottle.error(404)
