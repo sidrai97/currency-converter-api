@@ -9,7 +9,7 @@ def index_page():
 	print amount
 	print from_am
 	print to_am
-	bottle.response.headers['Access-Control-Allow-Origin'] = 'http://www.google.com/finance/converter'
+	bottle.response.headers['Access-Control-Allow-Origin'] = '*'
 	return bottle.template('./views/api.tpl',a=amount,f=from_am,t=to_am)
 
 @bottle.error(404)
