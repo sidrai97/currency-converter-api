@@ -197,4 +197,4 @@ https://currency-converter-api97.herokuapp.com/api?a=1&f=usd&t=inr
 ## Built With
 
 * [Bottle](https://bottlepy.org/docs/dev/) - Micro web-framework for Python
-* [Beautiful Soap](https://www.crummy.com/software/BeautifulSoup/) - Used for web scrapping
+* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) - Used for web scrapping
