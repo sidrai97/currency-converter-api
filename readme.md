@@ -8,10 +8,12 @@ Use this API to get a JSON response about current Currency rates
 ```
 https://currency-converter-api97.herokuapp.com/api?a=1&f=usd&t=inr
 ```
+
 #### Output
 ```
 {"data":[{"from":["USD","1"]},{"to":["INR","67.2050"]}]}
 ```
+
 ## Parameters Explained
 - a => amount to be converted
 - f => code of currency from which conversion is to be performed
