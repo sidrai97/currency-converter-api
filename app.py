@@ -21,7 +21,7 @@ def index_page():
 
 @bottle.route('/')
 def documentation_page():
-	return bottle.template('./views/documentation.tpl')
+	return bottle.redirect('https://sidrai97.github.io/currency-converter-api/')
 
 @bottle.error(404)
 def error404(error):
