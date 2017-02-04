@@ -20,6 +20,7 @@ def index_page():
 	return '{"data":[{"from":["'+fp_str[1]+'","'+fp_str[0]+'"]},{"to":["'+sp_str[1]+'","'+sp_str[0]+'"]}]}'
 
 @bottle.route('/')
+@bottle.route('/documentation')
 def documentation_page():
 	return bottle.redirect('https://sidrai97.github.io/currency-converter-api/')
 
