@@ -9,7 +9,7 @@ def enable_cors():
 	bottle.response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
 	bottle.response.headers['Access-Control-Allow-Headers'] = 'Authorization, Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 
-@app.route('/api', method=['OPTIONS','GET'])
+@app.get('/api')
 def index_page():
 	amount=bottle.request.query.a
 	from_am=bottle.request.query.f
