@@ -1,8 +1,8 @@
 # Currency Convertor 
 
-## Getting Started
+Use this API to get a JSON response about current Currency rates
 
-Use the following link with correct parameters to get the JSON response about current Currency rates
+## Getting Started
 
 ####Usage
 ```
