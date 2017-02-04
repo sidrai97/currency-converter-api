@@ -1,14 +1,13 @@
 import os
 import bottle
 
-def allow_cors(func):
-	def wrapper(*args, **kwargs):
-		bottle.response.headers['Access-Control-Allow-Origin'] = '*' # * in case you want to be accessed via any website
-		return func(*args, **kwargs)
-	return wrapper
+@bottle.hook('after_request')
+def enable_cors():
+	bottle.response.headers['Access-Control-Allow-Origin'] = 'https://www.google.com'
+	bottle.response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
+	bottle.response.headers['Access-Control-Allow-Headers'] = 'Authorization,Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 
-@bottle.get('/api')
-@allow_cors
+@bottle.route('/api', method=['OPTIONS','GET'])
 def index_page():
 	amount=bottle.request.query.a
 	from_am=bottle.request.query.f
