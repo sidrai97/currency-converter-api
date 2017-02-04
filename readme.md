@@ -1,13 +1,21 @@
 # Currency Convertor 
 
-
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Use the following link with correct parameters to get the JSON response about current Currency rates
 
-## Usage
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+####Usage
+```
+https://currency-converter-api97.herokuapp.com/api?a=1&f=usd&t=inr
+```
+####Output
+```
+{"data":[{"from":["USD","1"]},{"to":["INR","67.2050"]}]}
+```
+## Parameters Explained
+- a => amount to be converted
+- f => code of currency from which conversion is to be performed
+- t => code of currency to which conversion is to be performed
 
 ## Currency Codes
 
