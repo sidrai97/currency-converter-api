@@ -18,7 +18,7 @@
 		}
 	};
 	xhttp.open("GET","https://www.google.com/finance/converter?a={{a}}&from={{f}}&to={{t}}",true);
-	xhttp.setRequestHeader('Origin','https://www.goole.com');
+	xhttp.setRequestHeader('Access-Control-Allow-Origin','https://www.goole.com');
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
 	</script>
