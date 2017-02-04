@@ -1,4 +1,4 @@
-# Currency Convertor 
+# Currency Converter 
 
 Use this API to get a JSON response about current Currency rates
 
