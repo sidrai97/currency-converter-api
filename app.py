@@ -1,15 +1,13 @@
 import os
 import bottle
 
-app=bottle.Bottle()
-
-@app.hook('after_request')
+@bottle.hook('after_request')
 def enable_cors():
 	bottle.response.headers['Access-Control-Allow-Origin'] = 'https://www.google.com'
 	bottle.response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
 	bottle.response.headers['Access-Control-Allow-Headers'] = 'Authorization, Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 
-@app.get('/api')
+@bottle.route('/api', method=['OPTIONS','GET'])
 def index_page():
 	amount=bottle.request.query.a
 	from_am=bottle.request.query.f
