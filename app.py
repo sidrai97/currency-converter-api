@@ -9,7 +9,7 @@ def index_page():
 		amount=bottle.request.query.a
 		from_am=bottle.request.query.f
 		to_am=bottle.request.query.t
-		url='https://www.google.com/finance/converter?a='+amount+'&from='+from_am+'&to='+to_am
+		url='https://finance.google.com/finance/converter?a='+amount+'&from='+from_am+'&to='+to_am
 		html_resp=urllib.urlopen(url).read()
 		soup = BeautifulSoup(html_resp)
 		json_resp=soup.find('div', id='currency_converter_result')
