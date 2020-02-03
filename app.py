@@ -9,16 +9,18 @@ def index_page():
 		amount=bottle.request.query.a
 		from_am=bottle.request.query.f
 		to_am=bottle.request.query.t
-		url='https://finance.google.com/finance/converter?a='+amount+'&from='+from_am+'&to='+to_am
+		url='https://www.xe.com/currencyconverter/convert/?Amount='+amount+'&From='+from_am+'&To='+to_am
+		#url='https://finance.google.com/finance/converter?a='+amount+'&from='+from_am+'&to='+to_am
 		html_resp=urllib.urlopen(url).read()
 		soup = BeautifulSoup(html_resp)
-		json_resp=soup.find('div', id='currency_converter_result')
+		#json_resp=soup.find('div', id='currency_converter_result')
+		json_resp=soup.find('span', class_='converterresult-toAmount')
 		json_resp=map(str, json_resp.contents)
 		sp_str=json_resp[1]
-		sp_str=sp_str[18:sp_str.index('<',18)]
-		fp_str=json_resp[0].split(' ')
-		sp_str=sp_str.split(' ')
-		return '{"data":[{"from":["'+fp_str[1]+'","'+fp_str[0]+'"]},{"to":["'+sp_str[1]+'","'+sp_str[0]+'"]}]}'
+		#sp_str=sp_str[18:sp_str.index('<',18)]
+		#fp_str=json_resp[0].split(' ')
+		#sp_str=sp_str.split(' ')
+		return '{"data":[{"from":["'+from_am+'","'+amount+'"]},{"to":["'+to_am+'","'+sp_str+'"]}]}'
 	except:
 		return bottle.redirect('https://sidrai97.github.io/currency-converter-api/')	
 
